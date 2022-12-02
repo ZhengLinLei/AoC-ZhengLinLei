@@ -18,8 +18,11 @@ Since you can't be sure if the Elf is trying to help you or trick you, you shoul
 For example, suppose you were given the following strategy guide:
 
 A Y
+
 B X
+
 C Z
+
 This strategy guide predicts and recommends the following:
 
 In the first round, your opponent will choose Rock (A), and you should choose Paper (Y). This ends in a win for you with a score of 8 (2 because you chose Paper + 6 because you won).
