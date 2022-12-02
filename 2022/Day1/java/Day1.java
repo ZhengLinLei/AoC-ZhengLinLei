@@ -1,0 +1,78 @@
+// Part 1
+// ================
+
+// ZhengLinLei
+
+import java.util.Scanner;  // Import the Scanner class
+import java.io.*;  
+
+public class Day1 {
+    public static final String FILENAME = "../Day1/input.txt";
+    private static int[] input = {};
+    private static int[][] total = {};
+    private static int max = 0;
+    public static boolean isStringInt(String s) {
+        try
+        {
+            Integer.parseInt(s);
+            return true;
+        } catch (NumberFormatException ex)
+        {
+            return false;
+        }
+    }
+
+    public static int[] push(int[] array, int push) {
+        int[] longer = new int[array.length + 1];
+        for (int i = 0; i < array.length; i++)
+            longer[i] = array[i];
+        longer[array.length] = push;
+        return longer;
+    }
+
+    public static int[][] pushArr(int[][] array, int[] push) {
+        int[][] longer = new int[array.length + 1][];
+        for (int i = 0; i < array.length; i++)
+            longer[i] = array[i];
+        longer[array.length] = push;
+        return longer;
+    }
+
+    public static void main(String[] args) throws IOException {
+        try {
+            File myfile = new File(FILENAME);
+            Scanner openfile = new Scanner(myfile);
+
+            while (openfile.hasNextLine()) {
+
+                String filedata = openfile.nextLine();
+                if(isStringInt(filedata)) {
+
+                    input = push(input, Integer.parseInt(filedata));
+                }else{
+                    total = pushArr(total, input);
+                    input = new int[0];
+                }
+            }
+            openfile.close();
+
+            // Print out the array
+            for (int i = 0; i < total.length; i++) {
+                int x = 0;
+                for (int j = 0; j < total[i].length; j++) {
+                    System.out.print(total[i][j] + " ");
+                    x += total[i][j];
+                }
+                System.out.println();
+                if (x > max) {
+                    max = x;
+                }
+            }
+
+            System.out.println("Max: " + max);
+        } catch (FileNotFoundException e) {
+            System.out.println("Error.");
+            e.printStackTrace();
+        }
+    }
+}
