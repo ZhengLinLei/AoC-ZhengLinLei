@@ -12,7 +12,7 @@ n%define SYS_EXIT 60
 
 section .rodata
 input:
-  incbin "6.in"
+  incbin "../input.txt"
 inputend:
 
 section .data
