@@ -17,4 +17,4 @@ def f(s, n):
 
 
 t = open("../input.txt", "rt").read().strip()
-print(f(t, 14))
+print(f(t, 4), f(t, 14))
