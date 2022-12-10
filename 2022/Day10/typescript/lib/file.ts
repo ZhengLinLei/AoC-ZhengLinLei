@@ -1,4 +1,6 @@
-import * as fs from "fs";
+// npm install . --save
+//import fs
+import * as fs from 'fs';
 
 export class InputParser {
     private lines: string[];
