@@ -40,6 +40,6 @@ def _follow(points):
 
 lines = open("../input.txt").read().splitlines()
 
-print(list(_moves(lines)))
-# print("Part 1:", len(set(_follow(_moves(lines)))))
-# print("Part 2:", len(set(_follow(_follow(_follow(_follow(_follow(_follow(_follow(_follow(_follow(_moves(lines)))))))))))))
+# print(list(_moves(lines)))
+print("Part 1:", len(set(_follow(_moves(lines)))))
+print("Part 2:", len(set(_follow(_follow(_follow(_follow(_follow(_follow(_follow(_follow(_follow(_moves(lines)))))))))))))
