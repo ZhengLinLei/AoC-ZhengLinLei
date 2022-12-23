@@ -112,15 +112,4 @@ const run = input => {
     tick();
 }
 
-// INPUT
-// let input = fetch('../input.txt', {
-//     method: 'GET',
-//     headers: {
-//         'Content-Type': 'text/plain'
-//     },
-//     //Cross origin
-//     mode: 'cors',
-//     cache: 'default'
-// }).then(r => r.text()).then(run);
-
 run(document.querySelector('.root').innerText.trim());

@@ -2,18 +2,7 @@
 
 # Zheng LinLei
 
-from time import time as perf_counter
-from collections import Counter, defaultdict, deque
-
-
-def profiler(method):
-    def wrapper_method(*arg, **kw):
-        t = perf_counter()
-        ret = method(*arg, **kw)
-        print('Method ' + method.__name__ + ' took : ' +
-              "{:2.5f}".format(perf_counter()-t) + ' sec')
-        return ret
-    return wrapper_method
+from collections import Counter, deque
 
 
 def is_isolated(grid, e):
@@ -27,7 +16,6 @@ def is_isolated(grid, e):
     return True
 
 
-@profiler
 def part1():
     grid = set()
     for y, l in enumerate(open("../input.txt").read().splitlines()):
@@ -73,10 +61,9 @@ def part1():
 
     xs = set(e[0] for e in grid)
     ys = set(e[1] for e in grid)
-    print((max(xs) - min(xs) + 1) * (max(ys) - min(ys)+1) - len(grid))
+    print("Part 1: ", (max(xs) - min(xs) + 1) * (max(ys) - min(ys)+1) - len(grid))
 
 
-@profiler
 def part2():
     grid = set()
     for y, l in enumerate(open("../input.txt").read().splitlines()):
@@ -125,12 +112,9 @@ def part2():
         grid = new_grid
         directions.rotate(-1)
 
-    print(cycle)
+    print("Part 2: ", cycle)
 
 
-if __name__ == "__main__":
 
-    part1()
-    part2()
-
-import cProfile
+part1()
+part2()
