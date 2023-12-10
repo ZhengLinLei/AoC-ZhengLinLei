@@ -1,0 +1,22 @@
+{
+  "name": "aoc-zhenglinlei",
+  "version": "1.0.0",
+  "description": "https://adventofcode.com/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZhengLinLei/AoC-ZhengLinLei.git"
+  },
+  "author": "Zheng Lin Lei",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZhengLinLei/AoC-ZhengLinLei/issues"
+  },
+  "homepage": "https://github.com/ZhengLinLei/AoC-ZhengLinLei#readme",
+  "dependencies": {
+    "fs": "^0.0.1-security"
+  }
+}
