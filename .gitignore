@@ -2,4 +2,12 @@
 node_modules
 test
 
+.DS_Store
+node_modules
+test
+
 .vscode
+
+
+**/input.txt
+**/in
