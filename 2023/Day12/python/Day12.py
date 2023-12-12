@@ -1,54 +1,36 @@
-import functools, time
-
-ll = [x for x in open("../in").read().strip().split('\n')]
-
-
-@functools.lru_cache(maxsize=None)
-def solve(s, wr, remain):
+L=print
+G=len
+E='?'
+A=None
+import functools as M,time as C
+N=[A for A in open('../in').read().strip().split('\n')]
+@M.lru_cache(maxsize=A)
+def D(s,wr,remain):
+	J='.';I='#';C=remain;B=wr
 	if not s:
-		if wr is None and len(remain) == 0:
-			return 1
-		if len(remain) == 1 and wr is not None and wr == remain[0]:
-			return 1
+		if B is A and G(C)==0:return 1
+		if G(C)==1 and B is not A and B==C[0]:return 1
 		return 0
-	possibleMore = 0
-	for ch in s:
-		if ch == '#' or ch == '?':
-			possibleMore += 1
-	if wr is not None and possibleMore + wr < sum(remain):
-		return 0
-	if wr is None and possibleMore < sum(remain):
-		return 0
-	if wr is not None and len(remain) == 0:
-		return 0
-	poss = 0
-	if s[0] == '.' and wr is not None and wr != remain[0]:
-		return 0
-	if s[0] == '.' and wr is not None:
-		poss += solve(s[1:], None, remain[1:])
-	if s[0] == '?' and wr is not None and wr == remain[0]:
-		poss += solve(s[1:], None, remain[1:])
-	if (s[0] == '#' or s[0] == '?') and wr is not None:
-		poss += solve(s[1:], wr+1, remain)
-	if (s[0] == '?' or s[0] == '#') and wr is None:
-		poss += solve(s[1:], 1, remain)
-	if (s[0] == '?' or s[0] == '.') and wr is None:
-		poss += solve(s[1:], None, remain)
-	return poss
-
-p1 = 0
-p2 = 0
-
-start = time.time()
-for l in ll:
-	s = l.split(" ")[0]
-	v = tuple([int(x) for x in l.split(" ")[1].split(",")])
-	p1 += solve(s, None, v)
-	news = ""
-	for j in range(5):
-		news += "?"
-		news += s
-	p2 += solve(news[1:], None, v*5)
-
-print("Time (ms): ", (time.time() - start)*1000)
-print("Part 1: ", p1, "\nPart 2: ", p2)
+	H=0
+	for K in s:
+		if K==I or K==E:H+=1
+	if B is not A and H+B<sum(C):return 0
+	if B is A and H<sum(C):return 0
+	if B is not A and G(C)==0:return 0
+	F=0
+	if s[0]==J and B is not A and B!=C[0]:return 0
+	if s[0]==J and B is not A:F+=D(s[1:],A,C[1:])
+	if s[0]==E and B is not A and B==C[0]:F+=D(s[1:],A,C[1:])
+	if(s[0]==I or s[0]==E)and B is not A:F+=D(s[1:],B+1,C)
+	if(s[0]==E or s[0]==I)and B is A:F+=D(s[1:],1,C)
+	if(s[0]==E or s[0]==J)and B is A:F+=D(s[1:],A,C)
+	return F
+F=0
+H=0
+O=C.time()
+for I in N:
+	J=I.split(' ')[0];K=tuple([int(A)for A in I.split(' ')[1].split(',')]);F+=D(J,A,K);B=''
+	for P in range(5):B+=E;B+=J
+	H+=D(B[1:],A,K*5)
+L('Time (ms): ',(C.time()-O)*1000)
+L('Part 1: ',F,'\nPart 2: ',H)
