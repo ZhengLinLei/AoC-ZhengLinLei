@@ -3,7 +3,7 @@ node_modules
 test
 
 .vscode
-
+.vscode/*
 
 **/input.txt
 **/in
