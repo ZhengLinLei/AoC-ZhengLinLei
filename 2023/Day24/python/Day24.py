@@ -1,4 +1,4 @@
-# Part 1 and Part 2
+# Part 1
 # Zheng Lin Lei
 C,H=[],0
 for M in open('../in'):N,O=M.strip().split(' @ ');P,Q,R=N.split(', ');S,T,U=O.split(', ');C.append((int(P),int(Q),int(R),int(S),int(T),int(U)))
